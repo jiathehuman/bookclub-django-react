@@ -7,7 +7,7 @@ Welcome to Book Club, my pet project showcasing a Django-powered web application
 ## 🛠️ Tech Stack
 - Backend: Django, Django REST Framework
 - Frontend: React, Vite, HTML, CSS, JavaScript
-- Database: SQLite 
+- Database: SQLite
 
 ## Installing application
 1. Clone the repository
@@ -22,4 +22,6 @@ Welcome to Book Club, my pet project showcasing a Django-powered web application
 [2] tread, “How can I split up a long f-string in Python?,” Stack Overflow, Feb. 20, 2018. https://stackoverflow.com/questions/48881196/how-can-i-split-up-a-long-f-string-in-python <br>
 [3] D. Franks, “Project setup for Django and React Blog Tutorial: EP 1.” May 23, 2024. Accessed: Mar. 31, 2025. [Online]. Available: https://www.youtube.com/watch?v=gHbmQttMlgI <br>
 [4] igniteflow, “No module named pkg_resources,” Stack Overflow, Sep. 16, 2011. https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources <br>
+[5] Zustand, 2025. https://zustand.docs.pmnd.rs/apis/create (accessed Mar. 31, 2025). <br>
+[6] D. Franks, "Build an advanced and full-stack learning management system using Django and react from scratch to end". Nov. 2024, <br>
 ‌

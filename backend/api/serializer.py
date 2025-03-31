@@ -34,15 +34,15 @@ class DefaultTokenObtainPairSerializer(TokenObtainPairSerializer):
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True,
                                      validators=[validate_password])
-    password_2 = serializers.CharField(write_only=True, required=True,
-                                       validators=[validate_password])
+    repeat_password = serializers.CharField(write_only=True, required=True,
+                                            validators=[validate_password])
 
     class Meta:
         model = User
-        fields = ['full_name', 'email', 'password', 'password_2']
+        fields = ['full_name', 'email', 'password', 'repeat_password']
 
     def validate(self, attributes):
-        if attributes['password'] != attributes['password_2']:
+        if attributes['password'] != attributes['repeat_password']:
             raise serializers.ValidationError({"password":
                                                "Passwords must match"})
 
