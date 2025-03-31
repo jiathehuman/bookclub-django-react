@@ -18,8 +18,8 @@ Welcome to Book Club, my pet project showcasing a Django-powered web application
 6. Access the application in your browser!
 
 Reference:
-[1] https://stackoverflow.com/questions/46210934/importerror-couldnt-import-django
-[2]tread, “How can I split up a long f-string in Python?,” Stack Overflow, Feb. 20, 2018. https://stackoverflow.com/questions/48881196/how-can-i-split-up-a-long-f-string-in-python
-[3] D. Franks, “Project setup for Django and React Blog Tutorial: EP 1.” May 23, 2024. Accessed: Mar. 31, 2025. [Online]. Available: https://www.youtube.com/watch?v=gHbmQttMlgI
-[4] igniteflow, “No module named pkg_resources,” Stack Overflow, Sep. 16, 2011. https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources
+[1] https://stackoverflow.com/questions/46210934/importerror-couldnt-import-django <br>
+[2]tread, “How can I split up a long f-string in Python?,” Stack Overflow, Feb. 20, 2018. https://stackoverflow.com/questions/48881196/how-can-i-split-up-a-long-f-string-in-python <br>
+[3] D. Franks, “Project setup for Django and React Blog Tutorial: EP 1.” May 23, 2024. Accessed: Mar. 31, 2025. [Online]. Available: https://www.youtube.com/watch?v=gHbmQttMlgI <br>
+[4] igniteflow, “No module named pkg_resources,” Stack Overflow, Sep. 16, 2011. https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources <br>
 ‌
