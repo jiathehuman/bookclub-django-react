@@ -6,8 +6,8 @@ Welcome to Book Club, my pet project showcasing a Django-powered web application
 
 ## 🛠️ Tech Stack
 - Backend: Django, Django REST Framework
-- Frontend: React (Under construction), HTML, CSS, JavaScript
-- Database: SQLite (Under construction)
+- Frontend: React, Vite, HTML, CSS, JavaScript
+- Database: SQLite 
 
 ## Installing application
 1. Clone the repository
