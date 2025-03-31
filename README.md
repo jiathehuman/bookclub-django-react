@@ -1,5 +1,5 @@
 # Book Club
-Welcome to Book Club, my pet project showcasing a Django-powered web application for book lovers to connect and discuss their reading experiences!
+Welcome to Book Club, my pet project showcasing a Django-powered web application for book lovers to connect and discuss their reading experiences! This project is a work-in-progress.
 
 ## 🚀 Features
 - User Authentication - Sign up, Log in, Reset emails, the basic works
