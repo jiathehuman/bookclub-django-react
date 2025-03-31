@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     'anymail',  # better than Django email
+    'drf_yasg',
     # 'storages',
     "django_ckeditor_5",
     # Django dependencies

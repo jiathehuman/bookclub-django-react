@@ -12,7 +12,6 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from userauths.models import User
-# Create your views here.
 
 
 class DefaultTokenObtainPairView(TokenObtainPairView):
