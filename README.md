@@ -1,8 +1,13 @@
 # Book Club
-Welcome to Book Club, my pet project showcasing a Django-powered web application for book lovers to connect and discuss their reading experiences! This project is a work-in-progress.
+Welcome to Book Club, a Django-powered web application with React, designed for book lovers to connect, share, and discuss their reading experiences! 📖✨
 
-## 🚀 Features
-- User Authentication - Sign up, Log in, Reset emails, the basic works
+This project is a work-in-progress and a personal learning journey, built by exploring various YouTube tutorials, online sources and hands-on guides. It serves as a practical implementation of the knowledge gained — check out the References section for sources that contributed to its development.
+
+Stay tuned for updates as the project evolves! 🚀
+
+## 🚀 Current Features
+- User Authentication APIS - Sign up, Log in, Reset emails, the basic works
+- Functional register Page with React
 
 ## 🛠️ Tech Stack
 - Backend: Django, Django REST Framework

@@ -6,8 +6,15 @@ from django.db.models.signals import post_save
 
 class User(AbstractUser):
     """Store credentials for the user"""
-    username = models.CharField(unique=True, max_length=50)
-    email = models.EmailField(unique=True)
+    username = models.CharField(unique=True, max_length=50, error_messages={
+        "unique": "There is already an account registered "
+        "with this email."
+    })
+    email = models.EmailField(unique=True, error_messages={
+        "unique": "There is already an account registered "
+        "with this email.",
+        "blank": "Please enter a valid email"
+    })
     full_name = models.CharField(max_length=100)
     otp = models.CharField(max_length=50, null=True, blank=True)
     token = models.CharField(max_length=5000, null=True, blank=True)

@@ -4,6 +4,17 @@ import jwt_decode from "jwt-decode";
 import Cookie from "js-cookie";
 import Swal from "sweetalert2";
 
+const getErrorMessages = (error) => {
+    if (!error.response?.data) return ["Something is wrong."];
+    const messages = [];
+    if (error.response.data.email) messages.push(error.response.data.email);
+    if (error.response.data.password) messages.push(error.response.data.password);
+    if (error.response.data.repeat_password) messages.push(error.response.data.repeat_password);
+    // console.log("In getErrorMessages", messages)
+
+    return messages.length ? messages : ["Something is wrong."];
+};
+
 export const login = async (email, password) => {
     try {
         // consume django rest endpoint
@@ -12,17 +23,18 @@ export const login = async (email, password) => {
                 email, password,
             }
         );
-
         if (status==200){
+            console.log("Good login")
             setAuthUser(data.access, data.refresh);
-            alert("Login is successful.")
         }
         return {data, error: null}
 
     } catch (error) {
-        return {data, error: error.response.data?.detail || "Something is wrong."}
+        console.log(error)
+        return {data:null, error: getErrorMessages(error)}
     }
 };
+
 
 export const register = async (full_name, email, password, repeat_password) => {
     try {
@@ -34,10 +46,11 @@ export const register = async (full_name, email, password, repeat_password) => {
         });
         // log user in
         await login(email, password);
-        alert("Your registration is successful");
         return {data, error: null};
     } catch (error) {
-        return {error: error.response.data?.detail || "Something is wrong."}
+        console.error("Registration Error:", error.response?.data || error.message);  // Log error details
+        return {data:null,
+            error: getErrorMessages(error)}
     }
 };
 
@@ -45,7 +58,6 @@ export const logout = () => {
     Cookie.remove("access_token");
     Cookie.remove("refresh_token");
     userAuthStore.getState().setUser(null)
-    alert("Your log out is successful")
 }
 
 export const setUser = async () => {
@@ -87,7 +99,7 @@ export const setAuthUser = (access_token, refresh_token) => {
 
 export const getRefreshedToken = async() => {
     const refresh_token = Cookie.get("refresh_token");
-    const response = await axios.post("token/refresh/", {
+    const response = await axios.post("user/token/refresh/", {
         refresh: refresh_token,
     })
     return response.data;

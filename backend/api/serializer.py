@@ -34,19 +34,39 @@ class DefaultTokenObtainPairSerializer(TokenObtainPairSerializer):
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True,
                                      validators=[validate_password])
-    repeat_password = serializers.CharField(write_only=True, required=True,
-                                            validators=[validate_password])
+    repeat_password = serializers.CharField(write_only=True, required=True)
 
     class Meta:
         model = User
         fields = ['full_name', 'email', 'password', 'repeat_password']
 
-    def validate(self, attributes):
-        if attributes['password'] != attributes['repeat_password']:
-            raise serializers.ValidationError({"password":
-                                               "Passwords must match"})
+    def validate(self, data):
+        errors = {}
+        print("Start of validation", errors)
 
-        return attributes
+        #  Check if email is already taken
+        if User.objects.filter(email=data["email"]).exists():
+            errors["email"] = "This email is already registered."
+
+        #  Check if passwords match
+        if data["password"] != data["repeat_password"]:
+            errors["repeat_password"] = "Passwords must match."
+
+        print("In register serializer", errors)
+
+        #  Validate password strength
+        try:
+            validate_password(data["password"])
+
+        except serializers.ValidationError as e:
+            errors["password"] = list(e.messages)
+
+        #  If there are any errors, raise a single ValidationError
+        if errors:
+            print("In Register Serializer", errors)
+            raise serializers.ValidationError(errors)
+
+        return data
 
     def create(self, validated_data):
         user = User.objects.create(

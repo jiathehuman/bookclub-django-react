@@ -23,6 +23,30 @@ class RegisterView(generics.CreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = serializer.RegisterSerializer
 
+    def create(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": "User registered successfully"},
+                            status=status.HTTP_201_CREATED)
+
+        # Ensure all validation errors are returned correctly
+        else:
+            print("In register view", serializer.errors)
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
+        # if serializer.is_valid():
+        #     serializer.save()
+        #     return Response({"message": "User registered successfully"},
+        #                     status=status.HTTP_201_CREATED)
+
+        # # Ensure all validation errors are returned correctly
+        # else:
+        #     print("In register view", serializer.errors)
+        #     return Response(serializer.errors,
+        #                     status=status.HTTP_400_BAD_REQUEST)
+
 
 def generate_otp(length=7):
     otp = ''.join([str(random.randint(0, 9)) for _ in range(length)])

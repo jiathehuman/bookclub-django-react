@@ -4,7 +4,7 @@ import BaseFooter from '../partials/BaseFooter'
 import { Link } from 'react-router-dom'
 
 
-function ForgotPassword() {
+function ResetPassword() {
   return (
     <>
       <BaseHeader />
@@ -14,4 +14,4 @@ function ForgotPassword() {
   )
 }
 
-export default ForgotPassword
+export default ResetPassword
