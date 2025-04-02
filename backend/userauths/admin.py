@@ -4,7 +4,7 @@ from userauths.models import User, Profile
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    """Add on to string representation"""
+    """Add on to string representation of profile"""
     list_display = ["user", "full_name"]
 
 

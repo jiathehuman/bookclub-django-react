@@ -36,17 +36,6 @@ class RegisterView(generics.CreateAPIView):
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
 
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     return Response({"message": "User registered successfully"},
-        #                     status=status.HTTP_201_CREATED)
-
-        # # Ensure all validation errors are returned correctly
-        # else:
-        #     print("In register view", serializer.errors)
-        #     return Response(serializer.errors,
-        #                     status=status.HTTP_400_BAD_REQUEST)
-
 
 def generate_otp(length=7):
     otp = ''.join([str(random.randint(0, 9)) for _ in range(length)])
@@ -59,6 +48,7 @@ class PasswordResetView(generics.RetrieveAPIView):
     serializer_class = serializer.UserSerializer
 
     def get_object(self):
+        """Get the email of user and sent the refresh OTP"""
         email = self.kwargs['email']
         user = User.objects.filter(email=email).first()
         if user:
@@ -71,8 +61,8 @@ class PasswordResetView(generics.RetrieveAPIView):
             user.token = token
             # Link to send to user's email, pass to frontend
             link = (f"http://localhost:5173/new_password/"
-                    f"?otp={user.otp}&uuid64={uuidb64}"
-                    f"&=token{token}")
+                    f"?otp={user.otp}&uuidb64={uuidb64}"
+                    f"&token={token}")
             email_data = {
                 "link": link,
                 "username": user.username,
@@ -96,17 +86,19 @@ class PasswordResetView(generics.RetrieveAPIView):
 
 
 class PasswordChangeView(generics.CreateAPIView):
+    """Send email to user to reset password"""
     permission_classes = [AllowAny]
     serializer_class = serializer.UserSerializer
 
     def create(self, request, *args, **kwargs):
+        """Set the new password"""
         otp = request.data['otp']
         uuidb64 = request.data['uuidb64']
         pw = request.data['password']
         user = User.objects.get(id=uuidb64, otp=otp)
         if user:  # if user exists
             user.set_password(pw)
-            user.otp = ''  # reset otp to blank
+            # user.otp = ''  # reset otp to blank
             user.save()
             return Response({"message": "Password successfully reset."},
                             status=status.HTTP_201_CREATED)
