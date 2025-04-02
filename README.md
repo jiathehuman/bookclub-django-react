@@ -28,5 +28,5 @@ Stay tuned for updates as the project evolves! 🚀
 [3] D. Franks, “Project setup for Django and React Blog Tutorial: EP 1.” May 23, 2024. Accessed: Mar. 31, 2025. [Online]. Available: https://www.youtube.com/watch?v=gHbmQttMlgI <br>
 [4] igniteflow, “No module named pkg_resources,” Stack Overflow, Sep. 16, 2011. https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources <br>
 [5] Zustand, 2025. https://zustand.docs.pmnd.rs/apis/create (accessed Mar. 31, 2025). <br>
-[6] D. Franks, "Build an advanced and full-stack learning management system using Django and react from scratch to end". Nov. 2024, <br>
+[6] D. Franls, "Build an advanced and full-stack learning management system using Django and react from scratch to end". Nov. 2024. [Online course]. <br>
 ‌
